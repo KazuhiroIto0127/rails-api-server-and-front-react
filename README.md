@@ -27,3 +27,10 @@ docker compose run --no-deps api rails new . --force --database=mysql --api
 ```
 docker compose build
 ```
+
+次にdatabase.ymlの設定を更新する
+
+そしてdatabaseを作成する
+```
+docker compose run api bash -c "bin/rails db:create"
+```

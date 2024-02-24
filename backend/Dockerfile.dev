@@ -1,0 +1,25 @@
+FROM ruby:3.2.3
+ARG RUBYGEMS_VERSION=3.5.6
+
+ENV ROOT="/backend"
+ENV LANG=C.UTF-8
+ENV TZ=Asia/Tokyo
+ENV BUNDLER_VERSION=2.5.6
+
+WORKDIR ${ROOT}
+
+# Gemをインストール
+COPY Gemfile Gemfile.lock ${ROOT}
+RUN gem update --system ${RUBYGEMS_VERSION} && \
+    gem install bundler:${BUNDLER_VERSION} && \
+    bundle _${BUNDLER_VERSION}_ install
+COPY . ${ROOT}
+
+# Rails固有のエントリーポイント対応
+COPY entrypoint.sh /usr/bin/
+RUN chmod +x /usr/bin/entrypoint.sh
+ENTRYPOINT ["entrypoint.sh"]
+
+# Railsサーバーの起動
+EXPOSE 3000
+CMD ["rails", "server", "-b", "0.0.0.0"]
