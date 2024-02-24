@@ -5,7 +5,7 @@ rails-api-serverとfrontendはreact-app
 - https://zenn.dev/dsakai07/articles/84ceb379cffbcb
 
 
-# ことはじめ
+# backednのrailsを構築
 
 Gemfileが下記状態で
 ```
@@ -21,4 +21,9 @@ gem "rails", "~> 7.1.3", ">= 7.1.3.2"
 ```
 # --no-deps・・・リンクしたサービスを起動しないようにします。今回はdocker-compose.ymlにてdepends_on:　- dbを設定しているため必要になります。
 docker compose run --no-deps api rails new . --force --database=mysql --api
+```
+
+次に
+```
+docker compose build
 ```
