@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import LoginPage from './pages/LoginPage';
+import MyPage from './pages/MyPage';
+import Home from './pages/Home';
 
 function App() {
-  const [message, setMessage] = useState('');
-
-  useEffect(() => {
-    fetch('/api/hello')
-    .then(response => response.json())
-    .then(data => setMessage(data.message))
-    .catch(error => console.error('Fetching error: ', error));
-  }, []);
-
   return (
-    <div>
-      <h1>Response from Api</h1>
-      <p>{message}</p>
-    </div>
+    <Router>
+      <Routes>
+        <Route path={'/'} element={<Home />} />
+        <Route path={'login'} element={<LoginPage />} />
+        <Route path={'/myPage'} element={<MyPage />} />
+      </Routes>
+    </Router>
   );
 }
 
