@@ -5,7 +5,7 @@ rails-api-serverとfrontendはreact-app
 - https://zenn.dev/dsakai07/articles/84ceb379cffbcb
 
 
-# backednのrailsを構築
+# backendのrailsを構築
 
 Gemfileが下記状態で
 ```
@@ -38,4 +38,12 @@ docker compose run api bash -c "bin/rails db:create"
 そしてRails起動
 ```
 docker compose up
+```
+
+# frontendの構築
+
+frontendにDockerfileを追加して
+docker composeにfrontを追加して、
+```
+docker compose build
 ```

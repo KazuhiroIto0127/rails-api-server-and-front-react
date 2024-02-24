@@ -23,6 +23,15 @@ services:
     depends_on:
       - db
     tty: true
+  front:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    volumes:
+      - ./frontend:/frontend
+    command: sh -c "cd app &&PORT=3001 yarn start"
+    ports:
+      - "3001:3001"
 
 volumes:
   mysql-db:
