@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import Navigation from '../components/Navigation';
 
 function App() {
   const [message, setMessage] = useState('');
@@ -13,9 +13,7 @@ function App() {
 
   return (
     <div>
-      <Link to="/login">login</Link>
-      <br />
-      <Link to="/myPage">myPage</Link>
+      <Navigation />
       <h1>Response from Api</h1>
       <p>{message}</p>
     </div>
