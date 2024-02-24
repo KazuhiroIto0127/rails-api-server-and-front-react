@@ -34,3 +34,8 @@ docker compose build
 ```
 docker compose run api bash -c "bin/rails db:create"
 ```
+
+そしてRails起動
+```
+docker compose up
+```
