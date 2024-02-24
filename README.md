@@ -47,3 +47,8 @@ docker composeにfrontを追加して、
 ```
 docker compose build
 ```
+
+react appを作成
+```
+docker compose run front sh -c "npx create-react-app app --template typescript"
+```

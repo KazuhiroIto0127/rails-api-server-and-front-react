@@ -29,7 +29,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./frontend:/frontend
-    command: sh -c "cd app &&PORT=3001 yarn start"
+    command: sh -c "PORT=3001 yarn start"
     ports:
       - "3001:3001"
 
