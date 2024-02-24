@@ -7,5 +7,8 @@ Rails.application.routes.draw do
 
   namespace :api do
     get '/hello', to: 'hello#show'
+
+    post '/sessions', to: 'sessions#create'
+    get '/sessions', to: 'sessions#show'
   end
 end
